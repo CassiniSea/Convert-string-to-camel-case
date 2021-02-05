@@ -2,11 +2,13 @@ let str1 = 'the-stealth-warrior'
 let str2 = 'The_stealth-warrior'
 
 console.log(str1)
-console.log(str1.replace(/[-_](.)/g,(a,b) => {
+console.log(str1.replace(/([-_])(.)/g,(a, b, c, d, e) => {
 	console.log(a) // Заменяемая подстрока (-s, -w)
-	console.log(b) // Второй элемент заменяемой строки "(.)"
-	console.log(c)
-	return b.toUpperCase()}))
+	console.log(b) // Первый элемент заменяемой строки ([-_])
+	console.log(c) // Второй элемент заменяемой строки (.)
+	console.log(d) // Индекс по которому найдено совпадение
+	console.log(e) // Вся строка
+	return c.toUpperCase()}))
 
 function toCamelCase(str){
 	let isFirstCaps = !!str.match(/^[A-Z]/)
